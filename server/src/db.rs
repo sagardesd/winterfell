@@ -24,7 +24,7 @@ async fn init_sqlx_pool(args: &Args) -> Result<Pool<Postgres>> {
         }
     };
     PgPoolOptions::new()
-        .max_connections(5)
+        .max_connections(10)
         .connect(&db_url)
         .await
         .map_err(|e| e.into())

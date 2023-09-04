@@ -1,5 +1,5 @@
 use crate::appstate::AppState;
-use crate::handler::{doc, menumgmt, ordermgmt};
+use crate::handler::{connection, doc, menumgmt, ordermgmt};
 use axum::{
     routing::{delete, get, post, put},
     Router,
@@ -41,6 +41,7 @@ pub async fn init_router(state: Arc<AppState>) -> Router {
                 ),
         )
         .route("/api/v1/api-doc", get(doc::get_api_doc))
+        .route("/health", get(connection::health_check))
         .with_state(state);
     info!("Router: Routes are initialized");
     return app;
