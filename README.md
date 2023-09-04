@@ -1,4 +1,7 @@
 # winterfell
+
+This repo is a basic Restaurant order management system written in RUST.
+
 ## SERVER
 The api server is written in Rust using Axum crate and the server is using PostgreSql as Database.
 
