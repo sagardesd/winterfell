@@ -13,6 +13,8 @@ services:
       - postgres:/var/lib/postgresql/data
   server:
     build: .
+    depends_on:
+      - datastoredb
     container_name: backend_server
     restart: always
     environment:
