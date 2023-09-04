@@ -46,7 +46,7 @@ GET    /api/v1/:table/order/view        : Fetch the order details of that table
 
 GET    /api/v1/:table/bill              : Get the final bill of that table
 
-GET    /api/v1/:table/order/settle      : Settle the order change the status to done
+POST    /api/v1/:table/order/settle     : Settle the order change the status to done
 
 DELETE /api/v1/:table/order/delete      : Remove an order for the table
 
@@ -75,11 +75,50 @@ PUT    /api/v1/menu/update              : Update the existing item details of th
 DELETE /api/v1/menu/delete              : Delete items from the Menu
 
 
-                                        DOC APIS
+                                        OTHER APIS
 
 GET    /api/v1/api-doc                  : Get this page
+GET    /health                          : Get server health
 ```
 
 ## Client
+The client code is present in the directory client/.
+
+The client is written using reqwest and tokio to do parallel http requests to the server asynchronously.
+
+To execute the test:
+```
+Pre-requisite:
+Make sure the server is running or else the client will fail.
+Steps:
+1. cd client
+2. cargo build
+3. export RUST_LOG=info
+4. ./target/debug/client
+```
+
+```
+./target/debug/client --help
+client 0.1.0
+
+USAGE:
+    client [OPTIONS]
+
+OPTIONS:
+        --enable-dev-log-format <enable-dev-log-format>
+            [env: ENABLE_DEV_LOG_FORMAT=] [default: true]
+
+    -h, --help
+            Print help information
+
+        --log-level <LOG_LEVEL>
+            Log level. dubug, info, warn, error [env: RUST_LOG=info] [default: info]
+
+        --server-ip <SERVER_IP>
+            [env: SERVER_IP=] [default: 127.0.0.1:8081]
+
+    -V, --version
+            Print version information
+```
 
 
