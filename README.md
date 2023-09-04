@@ -10,8 +10,30 @@ User application can view the menu by using "GET /api/v1/menu/view" api.
 
 User application should then select only the item in the menu to place order for a table.
 
+Please refer the server/src/args.rs to know the details of the arguments and enviornment variables the server is using during startup.
+
+**How to start the Server**
+```
+Pre-requisite:
+- Docker must be installed on your machine.
+
+Steps to Start Server:
+1. Clone the Repo
+2. cd Server
+3. docker compose up
+```
+
+docker compose up will start the api server and PostgreSql db in two container.
+The services ips:
+```
+API Server will be listening on     : 127.0.0.1:8081
+The DB service will be listening on : 127.0.0.1:5432
+```
+
 **The api server hosts the below Endpoints:**
 ```
+                                        ORDER MANAGEMENT APIS
+
 POST   /api/v1/:table/order/add         : Place an order for a table
                                           Sample Payload : '{"items":[{"item_name":"Item1", "item_quantity":2},{"item_name":"Item2", "item_quantity": 1}]}'
                                           Example: curl -v --request POST "http://127.0.0.1:8081/api/v1/124/order/add" --header "Content-Type: application/json" -d 
@@ -38,6 +60,9 @@ DELETE /api/v1/:table/order/item/delete : Remove an item from the order of a tab
                                           Pass the query as "item_name"="item_name_you_want_to_delete"
                                           Example: curl -v --request DELETE "http://127.0.0.1:8081/api/v1/124/order/item/delete?item_name=Item1"
 
+
+                                        MENU MANAGEMENT APIS
+
 GET    /api/v1/menu/view                : Get the Menu
 
 POST   /api/v1/menu/add                 : Add new items to menu
@@ -46,7 +71,12 @@ PUT    /api/v1/menu/update              : Update the existing item details of th
 
 DELETE /api/v1/menu/delete              : Delete items from the Menu
 
+
+                                        DOC APIS
+
 GET    /api/v1/api-doc                  : Get this page
 ```
+
+## ClIENT
 
 
