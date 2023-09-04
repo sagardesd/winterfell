@@ -1,8 +1,8 @@
-# winterfell
+# Winterfell
 
 This repo is a basic Restaurant order management system written in RUST.
 
-## SERVER
+## Server
 The api server is written in Rust using Axum crate and the server is using PostgreSql as Database.
 
 Upon start the api server loads the Menu from the data/sample_menu.yaml file to the Database and creates the table Menu.
@@ -80,6 +80,6 @@ DELETE /api/v1/menu/delete              : Delete items from the Menu
 GET    /api/v1/api-doc                  : Get this page
 ```
 
-## ClIENT
+## Client
 
 
