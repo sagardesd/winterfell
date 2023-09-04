@@ -1,0 +1,240 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "version": "1.0.0",
+    "title": "Restaurant Order System",
+    "description": "API for managing restaurant orders and menu"
+  },
+  "paths": {
+    "/api/v1/{table}/order/add": {
+      "post": {
+        "description": "Place an order for a table",
+        "parameters": [
+          {
+            "name": "table",
+            "in": "path",
+            "description": "Table number",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+         "requestBody": {
+      "description": "Information for the new order",
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "order_num": {
+                "type": "integer",
+                "description": "A unique identifier for order number"
+              },
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "item_name": {
+                      "type": "string",
+                      "description": "The name of the item"
+                    },
+                    "item_quantity": {
+                      "type": "integer",
+                      "description": "The quantity of the item ordered"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+        "responses": {
+          "200": {
+            "description": "Order placed successfully"
+          }
+        }
+      }
+    },
+    "/api/v1/{table}/order/view": {
+      "get": {
+        "description": "Fetch the order details of that table",
+        "parameters": [
+          {
+            "name": "table",
+            "in": "path",
+            "description": "Table number",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Order fetched successfully"
+          }
+        }
+      }
+    },
+    "/api/v1/{table}/order/settle": {
+      "get": {
+        "description": "Get the final bill for that table",
+        "parameters": [
+          {
+            "name": "table",
+            "in": "path",
+            "description": "Table number",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Final bill retrieved successfully"
+          }
+        }
+      }
+    },
+    "/api/v1/{table}/order/delete": {
+      "delete": {
+        "description": "Remove an order for the table",
+        "parameters": [
+          {
+            "name": "table",
+            "in": "path",
+            "description": "Table number",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Order deleted successfully"
+          }
+        }
+      }
+    },
+    "/api/v1/{table}/order/item/get": {
+      "get": {
+        "description": "Get the details of an item for an order of a table",
+        "parameters": [
+          {
+            "name": "table",
+            "in": "path",
+            "description": "Table number",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Item details fetched successfully"
+          }
+        }
+      }
+    },
+    "/api/v1/{table}/order/item/update": {
+      "put": {
+        "description": "Update an item of an order of a table",
+        "parameters": [
+          {
+            "name": "table",
+            "in": "path",
+            "description": "Table number",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Item updated successfully"
+          }
+        }
+      }
+    },
+    "/api/v1/{table}/order/item/delete": {
+      "delete": {
+        "description": "Remove an item from the order of a table",
+        "parameters": [
+          {
+            "name": "table",
+            "in": "path",
+            "description": "Table number",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Item deleted successfully"
+          }
+        }
+      }
+    },
+    "/api/v1/menu/view": {
+      "get": {
+        "description": "Get the menu",
+        "responses": {
+          "200": {
+            "description": "Menu fetched successfully"
+          }
+        }
+      }
+    },
+    "/api/v1/menu/add": {
+      "post": {
+        "description": "Add new items to menu",
+        "responses": {
+          "200": {
+            "description": "Item added to menu successfully"
+          }
+        }
+      }
+    },
+    "/api/v1/menu/update": {
+      "put": {
+        "description": "Update the existing item details of the menu",
+        "responses": {
+          "200": {
+            "description": "Item details updated successfully"
+          }
+        }
+      }
+    },
+    "/api/v1/menu/delete": {
+      "delete": {
+        "description": "Delete items from the menu",
+        "responses": {
+          "200": {
+            "description": "Item deleted from menu successfully"
+          }
+        }
+      }
+    },
+    "/api/v1/api-doc": {
+      "get": {
+        "description": "Get this page",
+        "responses": {
+          "200": {
+            "description": "Page fetched successfully"
+          }
+        }
+      }
+    }
+  }
+}

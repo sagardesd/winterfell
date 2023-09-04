@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+  datastoredb:
+    build: ./distrib/pgsql/
+    container_name: postgressqldb
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres:/var/lib/postgresql/data
+  server:
+    build: .
+    container_name: backend_server
+    restart: always
+    environment:
+      RUST_LOG: info,sqlx::query=error
+      MENU_JSON: /winterfell/data/sample_menu.yaml
+      LISTEN_PORT: 8081
+      BIND_ADDRESS: 0.0.0.0
+      DB_HOST: datastoredb
+      DB_PORT: 5432
+      DB_USER: kratos
+      DB_PASSWORD: password
+      DB_NAME: nephster
+    ports:
+      - 8081:8081
+
+volumes:
+  postgres:

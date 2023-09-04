@@ -1,0 +1,25 @@
+items:
+  - name: "Item1"
+    description: "Delicious"
+    price: 10.00
+  - name: "Item2"
+    description: "Tasty item 2"
+    price: 12.00
+  - name: "Item3"
+    description: "Flavorful item 3"
+    price: 15.00
+  - name: "Item4"
+    description: "Decadent item 4"
+    price: 20.00
+  - name: "Item5"
+    description: "Delicious"
+    price: 10.00
+  - name: "Item6"
+    description: "Tasty item 2"
+    price: 12.00
+  - name: "Item7"
+    description: "Flavorful item 3"
+    price: 15.00
+  - name: "Item8"
+    description: "Decadent item 4"
+    price: 20.00

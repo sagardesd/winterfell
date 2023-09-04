@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  datastoredb:
+    build: ./pgsql/
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+volumes:
+  postgres:

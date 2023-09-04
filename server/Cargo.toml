@@ -1,0 +1,19 @@
+[package]
+name = "restaurant"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+clap = { version = "3.2.23", features = ["derive", "env"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = { version = "1.0" }
+serde_yaml = { version = "0.8.26" }
+sqlx = { version = "0.5", features = [ "postgres", "runtime-tokio-rustls", "macros", "json" ] }
+axum = { version = "0.6" , features = ["default"] }
+tokio = { version = "1", features = ["sync", "macros"] }
+anyhow = "1.0"
+rand = "0.8"
