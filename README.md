@@ -15,7 +15,7 @@ User application should then select only the item in the menu to place order for
 
 Please refer the server/src/args.rs to know the details of the arguments and enviornment variables the server is using during startup.
 
-**How to start the Server**
+**How to start the Server locally**
 ```
 Pre-requisite:
 - Docker must be installed on your machine.
